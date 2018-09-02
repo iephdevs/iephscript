@@ -26,35 +26,6 @@ ln -fs /usr/share/zoneinfo/Asia/Manila /etc/localtime
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 service ssh restart
 
-# install neofetch
-
-echo "deb http://dl.bintray.com/dawidd6/neofetch jessie main" | tee -a /etc/apt/sources.list
-
-curl "https://bintray.com/user/downloadSubjectPublicKey?username=bintray"| apt-key add -
-
-apt-get update
-
-apt-get install neofetch
-
-echo "deb http://dl.bintray.com/dawidd6/neofetch jessie main" | tee -a /etc/apt/sources.list
-
-stall neofetch
-
-echo "deb http://dl.bintray.com/dawidd6/neofetch jessie main" | tee -a /etc/apt/sources.list
-
-curl "https://bintray.com/user/downloadSubjectPublicKey?username=bintray"| apt-key add -
-
-apt-get update
-
-apt-get install neofetch
-
-echo "deb http://dl.bintray.com/dawidd6/neofetch jessie main" | tee -a /etc/apt/sources.list
-
-curl "https://bintray.com/user/downloadSubjectPublicKey?username=bintray"| apt-key add -
-
-apt-get update
-
-apt-get install neofetch
 
 
 
