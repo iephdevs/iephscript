@@ -56,12 +56,7 @@ apt-get update
 
 apt-get install neofetch
 
-# install screenfetch
-cd
-wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/rafgref/script/master/screenfetch"
-chmod +x /usr/bin/screenfetch
-echo "clear" >> .profile
-echo "screenfetch" >> .profile
+
 
 # set repo
 wget -O /etc/apt/sources.list "https://raw.githubusercontent.com/iephdevs/iephscript/master/sources.list.debian7"
