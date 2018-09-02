@@ -56,27 +56,26 @@ apt-get update
 apt-get install neofetch
 
 echo 'echo -e "
- (         (        )                                       
- )\ )      )\ )  ( /(                                       
-(()/( (   (()/(  )\())                                      
- /(_)))\   /(_))((_)\                                       
-(_)) ((_) (_))   _((_)                                      
-|_ _|| __|| _ \ | || |                                      
- | | | _| |  _/ | __ |                                      
-|___||___||_|   |_||_|                                      
- (                        (        )   (         (    (     
- )\ )                     )\ )  ( /(   )\ )      )\ ) )\ )  
-(()/(   (    (   (   (   (()/(  )\()) (()/( (   (()/((()/(  
- /(_))  )\   )\  )\  )\   /(_))((_)\   /(_)))\   /(_))/(_)) 
-(_))_  ((_) ((_)((_)((_) (_))    ((_) (_)) ((_) (_)) (_))   
- |   \ | __|\ \ / / | __|| |    / _ \ | _ \| __|| _ \/ __|  
- | |) || _|  \ V /  | _| | |__ | (_) ||  _/| _| |   /\__ \  
- |___/ |___|  \_/   |___||____| \___/ |_|  |___||_|_\|___/  
-                                                            
-"' >> .bashrc
 echo "clear" >> .bashrc
-echo 'echo -e "Welcome to the server $HOSTNAME"' >> .bashrc
-echo 'echo -e "Script modified by IEPH DEVELOPERS"' >> .bashrc
+echo 'echo -e "█████████████████████████████"' >> .bashrcecho 'echo -e "
+
+█╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬█ "' >> .bashrc                                       echo 'echo -e " █╬██╬███████╬██████╬██╬╬╬██╬█"' >> .bashrc
+
+echo 'echo -e "█╬██╬██╬╬╬╬╬╬██╬╬██╬██╬╬╬██╬█"' >> .bashrcecho 'echo -e "
+
+█╬██╬█████╬╬╬██████╬███████╬█"' >> .bashrcecho 'echo -e "
+
+█╬██╬██╬╬╬╬╬╬██╬╬╬╬╬██╬╬╬██╬█"' >> .bashrc
+
+echo 'echo -e "█╬██╬███████╬██╬╬╬╬╬██╬╬╬██╬█"' >> .bashrc
+
+echo 'echo -e "█╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬█"' >> .bashrc
+
+echo 'echo -e "███████╬INJECTOR EHI PH╬███████"' >> .bashrcecho 'echo -e "
+
+█████████████████████████████"' >> .bashrc
+echo 'echo -e "Welcome to the server $HOSTNAME" | lolcat' >> .bashrc
+echo 'echo -e "Script modified by IEPH DEVELOPERS" | lolcat' >> .bashrc
 echo 'echo -e "Type menu to display a list of commands"' >> .bashrc
 echo 'echo -e ""' >> .bashrc
 
@@ -91,33 +90,57 @@ wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/iephdevs/i
 service nginx restart
 
 # install openvpn
-wget -O /etc/openvpn/openvpn.tar "https://raw.githubusercontent.com/Clrkz/VPSAutoScrptz/master/openvpn-debian.tar"
+
+wget -O /etc/openvpn/openvpn.tar "https://raw.githubusercontent.com/iephdevs/devs/master/openvpn-debian.tar"
+
 cd /etc/openvpn/
+
 tar xf openvpn.tar
-wget -O /etc/openvpn/1194.conf "https://raw.githubusercontent.com/Clrkz/VPSAutoScrptz/master/1194.conf"
+
+wget -O /etc/openvpn/1194.conf "https://raw.githubusercontent.com/iephdevs/devs/master/1194.conf"
+
 service openvpn restart
+
 sysctl -w net.ipv4.ip_forward=1
+
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
+
 iptables -t nat -I POSTROUTING -s 192.168.100.0/24 -o eth0 -j MASQUERADE
+
 iptables-save > /etc/iptables_yg_baru_dibikin.conf
-wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/Clrkz/VPSAutoScrptz/master/iptables"
+
+wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/iephdevs/devs/master/iptables"
+
 chmod +x /etc/network/if-up.d/iptables
+
 service openvpn restart
 
 # konfigurasi openvpn
+
 cd /etc/openvpn/
-wget -O /etc/openvpn/client.ovpn "https://raw.githubusercontent.com/Clrkz/VPSAutoScrptz/master/client-1194.conf"
+
+wget -O /etc/openvpn/client.ovpn "https://raw.githubusercontent.com/iephdevs/devs/master/client-1194.conf"
+
 sed -i $MYIP2 /etc/openvpn/client.ovpn;
+
 cp client.ovpn /home/vps/public_html/
 
 # install badvpn
+
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/iephdevs/iephscript/master/badvpn-udpgw"
+
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/iephdevs/devs/master/badvpn-udpgw"
+
 if [ "$OS" == "x86_64" ]; then
-  wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/iephdevs/iephscript/master/badvpn-udpgw64"
+
+  wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/iephdevs/devs/master/badvpn-udpgw64"
+
 fi
+
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.local
+
 chmod +x /usr/bin/badvpn-udpgw
+
 screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300
 
 # setting port ssh
@@ -229,6 +252,24 @@ service fail2ban restart
 service webmin restart
 rm -rf ~/.bash_history && history -c
 echo "unset HISTFILE" >> /etc/profile
+
+# install neofetch
+
+echo "deb http://dl.bintray.com/dawidd6/neofetch jessie main" | tee -a /etc/apt/sources.list
+
+curl "https://bintray.com/user/downloadSubjectPublicKey?username=bintray"| apt-key add -
+
+apt-get update
+
+apt-get install neofetch
+
+echo "deb http://dl.bintray.com/dawidd6/neofetch jessie main" | tee -a /etc/apt/sources.list
+
+curl "https://bintray.com/user/downloadSubjectPublicKey?username=bintray"| apt-key add -
+
+apt-get update
+
+apt-get install neofetch
 
 # info
 clear
