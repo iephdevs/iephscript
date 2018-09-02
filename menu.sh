@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "================================================="
+echo -e "=================================================" | lolcat
 	
 	echo -e "\e[032;1mCPU Model:\e[0m $cname"
 	echo -e "\e[032;1mNumber Of Cores:\e[0m $cores"
@@ -10,7 +10,7 @@ echo -e "================================================="
 	echo -e "\e[032;1mSystem Uptime:\e[0m $up"
 	echo -e
 	
-echo -e "WELCOME TO IEPH DEVELOPERS SCRIPT"
+echo -e "WELCOME TO IEPH DEVELOPERS SCRIPT" | lolcat
 echo -e ""  
 echo -e "> ${color1}menu         : ${color12}Menu list"
 echo -e "> ${color1}usernew      : ${color12}New user SSH"
@@ -28,4 +28,4 @@ echo -e "> ${color1}info         : ${color12}System Information"
 echo -e "> ${color1}about        : ${color12}About AutoScript"
 echo -e "> ${color1}exit         : ${color12}Exit terminal SSH"
 echo -e ""
-echo -e "================================================="
+echo -e "=================================================" | lolcat
